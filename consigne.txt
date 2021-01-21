@@ -1,0 +1,60 @@
+PROJET 11 – Utilisation du Framework Symfony
+
+Dans ce projet il vous sera demandé de créer une pseudo interface d’un porfolio à l’aide du framework Symfony. Il y aura à la fois une partie front et une partie back. L’administration de votre portfolio devra être sécurisé. Par conséquent vous devrez passé par un formulaire d’authentification. 
+
+Récapitulatif du projet
+
+I) Installation de Symfony
+II) Doctrine et Entités
+-	L’entité Project
+-	Les Fixtures
+-	Afficher les projets
+-	Afficher un projet spécifique
+III) Authentification	
+-	Création de l’entité Admin
+-	Formulaire de connexion
+-	Gestion de l’authentification
+IV) CRUD
+-	Afficher les projets dans l’admin avec leur actions possibles (modifier, supprimer)
+-	Gestion des formulaires
+o	Ajouter un projet
+o	Supprimer un projet
+o	Modifier un projet
+
+Attention il ne faut pas que vous génériez les tables de la base de données dans PhpMyAdmin, c’est Symfony qui doit s’en occuper. Toutefois voici la structure que je vous demande :
+
+Project :
+Nom		Type		Null
+title		varchar(255)	Non
+description	longtext	Non
+image		varchar(255)	Oui
+github		varchar(255)	Oui
+weblink		varchar(255)	Non
+
+https://i.imgur.com/FyC7tL0.png
+
+Admin : 
+Nom		Type		Null
+username	varchar(255)	Non
+password	varchar(255)	Non
+created_at	varchar(255)	Oui
+
+https://i.imgur.com/FZT27Ty.png
+
+Livrable attendu : 
+Votre code devra être versionné sur GitHub
+Le travail se fera de manière individuelle.
+
+Options supplémentaires : 
+Pour le champ description vous pouvez ajouter en option un éditeur de texte de type ckEditor
+Pour le champ image vous pouvez mettre en place un système d’upload
+
+Ressources pour vous aider dans votre développement :
+https://symfony.com/doc/current/index.html
+https://www.kaherecode.com/tag/symfony
+https://www.youtube.com/watch?v=UTusmVpwJXo&list=PLpUhHhXoxrjdQLodxlHFY09_9XzqdPBW8
+https://twig.symfony.com/
+
+Date du projet : 
+Du 19/01/2021 au 27/01/2021
+

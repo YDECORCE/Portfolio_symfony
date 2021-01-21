@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{project.title}}{% endblock %}
+
+{% block body %}
+<div class="row my-5 justify-content-center">
+    <h1>{{project.title}}</h1>
+</div>
+<div class="row justify-content-center">
+
+
+    <img src={{project.image}} class="imgfluid" style="text-align:center">
+    <p class="card-text">{{project.description}}.</p>
+    <a href={{project.github}} target="blanck"><button type="button" class="btn btn-primary">GitHub</button></a>
+    <a href={{project.weblink}} target="blanck"><button type="button" class="btn btn-primary">Web</button></a>
+
+
+</div>
+
+</div>
+{% endblock %}
