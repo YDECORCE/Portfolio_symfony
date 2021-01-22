@@ -2,7 +2,13 @@
 {% form_theme formProject 'bootstrap_4_layout.html.twig' %}
 {% block body %}
 
-<h1>Ajout d'un projet</h1>
+<h1>
+{% if editmode %}
+Modification du projet
+{% else %}
+Ajout d'un projet
+{% endif %}
+</h1>
 {{ form_start(formProject)}}
 
 {{ form_row(formProject.Title, {'attr': {
@@ -24,7 +30,13 @@
 {{ form_row(formProject.Weblink, {'attr': {
                             'placeholder': 'Url du projet'
 }})}}
-<button type="submit" class="btn btn-primary">Ajouter le projet</button>
+<button type="submit" class="btn btn-primary">
+{% if editmode %}
+Enregistrer
+{% else %}
+Ajouter le projet
+{% endif %}
+</button>
 
 {{ form_end(formProject)}}
 

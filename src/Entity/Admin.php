@@ -27,6 +27,8 @@ class Admin
      */
     private $Password;
 
+    public $confirm_Password;
+
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
