@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+{% block title %} Administration {% endblock %}
+{% block body %}
+ <div class="admin-page">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col s12">
+                    <a href="{{ path('new_project') }}" class="btn btn blue darken-4" style="float: right">Ajouter</a>
+                    <h5>Articles</h5>
+                    <table>
+                        <tr>
+                            <th>#</th>
+                            <th>Titre</th>
+                            <th>Description</th>
+                            <th>Lien Image</th>
+                            <th>Github</th>
+                            <th>Lien URL</th>
+                            <th>Actions</th>
+                        </tr>
+                        {% set i = 1 %}
+                        {% for project in projects %}
+                            <tr>
+                                <td>{{ i }}</td>
+                                <td><a href="{{ path('project_show', {'id': project.id}) }}" target="_blank">{{ project.title }}</a></td>
+                                <td>{{project.Description}}</td>
+                                <td>{{project.Image}}</td>
+                                <td>{{project.Github}}</td>
+                                <td>{{project.Weblink}}</td>
+                                 <td>
+                                    <a href="{{ path('edit_project', {'id': project.id}) }}"><i class="material-icons blue-text">edit</i></a>
+                                    <a href="{{ path('remove_project', {'id': project.id}) }}"><i class="material-icons red-text">delete</i></a>
+                                </td>
+                            </tr>
+                            {% set i = i+1 %}
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+            </div>
+{% endblock %}

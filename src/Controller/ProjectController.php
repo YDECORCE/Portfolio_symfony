@@ -13,6 +13,18 @@ use Symfony\Component\HttpFoundation\Request;
 class ProjectController extends AbstractController
 {
     /**
+     * @Route("/CRUD/admin", name="admin")
+     */
+    public function admin()
+    {
+        $projects = $this->getDoctrine()->getRepository(Project::class)->findAll();
+
+        return $this->render('project/admin.html.twig', [
+            'projects' => $projects
+            ]);
+    }
+
+    /**
      * @Route("/project", name="project")
      */
     public function index(ProjectRepository $repo): Response
@@ -69,6 +81,14 @@ class ProjectController extends AbstractController
             'project'   =>  $project,
             ]);
     }
-
-    
+/**
+ * @Route("/CRUD/project/remove/{id}", name="remove_project")
+ */
+ public function remove(Project $project): Response
+ {
+    $entityManager=$this->getDoctrine()->getManager();
+    $entityManager->remove($project);
+    $entityManager->flush();
+    return $this->redirectToRoute('admin');
+ }
 }
