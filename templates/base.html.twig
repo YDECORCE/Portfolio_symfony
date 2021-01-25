@@ -26,12 +26,20 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('project')}}">Projets</a>
                 </li>
+                {% if app.user %}                
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('new_project')}}">Nouveau Projet</a>
                 </li>
+                {% endif %}
+                {% if not app.user %}
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link" href="{{ path('security_login')}}">Connexion</a>
                 </li>
+                {% else %}
+                 <li class="nav-item">
+                    <a class="nav-link" href="{{ path('security_logout')}}">Déconnexion</a>
+                </li>
+                {% endif %}
                 {# <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                         aria-haspopup="true" aria-expanded="false">Dropdown</a>

@@ -24,8 +24,8 @@ class ProjectController extends AbstractController
         ]);
     }
     /**
-     * @Route("/project/new", name="new_project")
-     * @Route("/project/{id}/edit", name="edit_project")
+     * @Route("/CRUD/project/new", name="new_project")
+     * @Route("/CRUD/project/{id}/edit", name="edit_project")
      */
     public  function form(Project $project = null , Request $request){
         
