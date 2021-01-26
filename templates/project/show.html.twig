@@ -10,7 +10,7 @@
 <div class="row justify-content-center" style="flex-wrap:wrap">
 
 
-    <img src={{project.image}} class="imgfluid" style="text-align:center">
+    <img src={{ asset('uploads/Images/' ~ project.image)}} class="imgfluid" style="text-align:center">
     <p class="card-text">{{project.description|raw }}</p>
     <div>
     <a href={{project.github}} target="blanck"><button type="button" class="btn btn-primary">GitHub</button></a>
