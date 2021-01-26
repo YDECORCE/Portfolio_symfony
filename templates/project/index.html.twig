@@ -11,17 +11,18 @@
 {% for project in projects %}
     <div class="col-12 col-lg-4">
         <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
-            <div class="card-header">
+            <div class="card-header text-center">
             <a href="{{ path('project_show', {'id': project.id}) }}">
-            {{project.title}}
+            {{project.title|upper}}
             </a>
             </div>
             <div class="card-body" style="text-align:center">
                 <img src={{project.image}} class="img-fluid" style="text-align:center; height:150px">
                 {# <p class="card-text">{{project.description}}.</p> #}
+                <div>
                 <a href={{project.github}} target="blanck"><button type="button" class="btn btn-primary">GitHub</button></a>
                 <a href={{project.weblink}} target="blanck"><button type="button" class="btn btn-primary">Web</button></a>
-                
+                </div>
             </div>
         </div>
     </div>

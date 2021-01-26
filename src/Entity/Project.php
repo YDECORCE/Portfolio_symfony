@@ -39,13 +39,17 @@ class Project
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Url()
+     * @Assert\Url(
+     *          dnsMessage = "The host '{{ value }}' could not be resolved."
+     * )
      */
     private $Github;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Url()
+     * @Assert\Url(
+     *          dnsMessage = "The host '{{ value }}' could not be resolved."
+     * )
      */
     private $Weblink;
 

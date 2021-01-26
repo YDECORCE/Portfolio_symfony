@@ -2,13 +2,14 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Project;
 use App\Repository\ProjectRepository;
-// use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
+use Symfony\Component\HttpFoundation\Response;
+// use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ProjectController extends AbstractController
 {
@@ -48,7 +49,7 @@ class ProjectController extends AbstractController
 
         $form=$this->createFormBuilder($project)
                     ->add('Title')
-                    ->add('Description')
+                    ->add('Description', CKEditorType::class)
                     ->add('Image')
                     ->add('Github')
                     ->add('Weblink')
@@ -60,7 +61,7 @@ class ProjectController extends AbstractController
             $Manager->persist($project);
             $Manager->flush();
 
-            return $this->redirectToRoute('project_show', ['id' =>$project->getId()]);
+            return $this->redirectToRoute('admin');
         }
 
       
