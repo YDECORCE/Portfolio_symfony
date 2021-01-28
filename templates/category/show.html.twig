@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes projets avec la technologie {{Category.name}}{% endblock %}
+
+{% block body %}
+<div class="row mt-5" style="flex-wrap:wrap ; flex-direction:column">
+    <h1>Mes projets avec la technologie {{Category.name}}</h1>
+    <div>
+    <p>{{Category.description|raw}}</p>
+    </div>
+    <div class="row">
+    {% for project in Category.projects %}
+    <div class="col-12 col-lg-4">
+        <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
+            <div class="card-header text-center">
+                <a href="{{ path('project_show', {'id': project.id}) }}">
+                    {{project.title|upper}}
+                </a>
+            </div>
+            <div class="card-body" style="text-align:center">
+                <img src={{asset('uploads/Images/' ~ project.image)}} class="img-fluid"
+                    style="text-align:center; height:150px">
+                <div class="mt-2">
+                    <a href={{project.github}} target="blanck"><button type="button"
+                            class="btn btn-primary">GitHub</button></a>
+                    <a href={{project.weblink}} target="blanck"><button type="button"
+                            class="btn btn-primary">Web</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</div>
+{% endblock %}

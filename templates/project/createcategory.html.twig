@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+{% block title %} {% if editmode %}Mise à jour de la catégorie{% else %}Nouvelle catégorie{% endif %} {% endblock %}
+{% form_theme formcategory 'bootstrap_4_layout.html.twig' %}
+{% block body %}
+
+<h1 class="mt-5">
+{% if editmode %}
+Modification de la catégorie
+{% else %}
+Ajout d'une catégorie
+{% endif %}
+</h1>
+{{ form_start(formcategory)}}
+
+{{ form_row(formcategory.name, {'attr': {
+                            'placeholder': 'Nom de la catégorie'
+}})}}
+
+{{ form_row(formcategory.description, {'attr': {
+                            'placeholder': 'Description'
+}})}}
+
+<button type="submit" class="btn btn-primary">
+{% if editmode %}
+Enregistrer
+{% else %}
+Ajouter la catégorie
+{% endif %}
+</button>
+
+{{ form_end(formcategory)}}
+
+{% endblock %}

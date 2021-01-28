@@ -1,4 +1,5 @@
 {% extends 'base.html.twig' %}
+{% block title %} {% if editmode %}Mise à jour du Projet{% else %}Nouveau projet{% endif %} {% endblock %}
 {% form_theme formProject 'bootstrap_4_layout.html.twig' %}
 {% block body %}
 
@@ -30,7 +31,11 @@ Ajout d'un projet
 {{ form_row(formProject.Weblink, {'attr': {
                             'placeholder': 'Url du projet'
 }})}}
-<button type="submit" class="btn btn-primary">
+<div>
+{{ form_label(formProject.categories, 'Choisissez une ou plusieurs catégories') }}
+{{ form_widget(formProject.categories) }}
+</div>
+<button type="submit" class="btn btn-primary mt-5">
 {% if editmode %}
 Enregistrer
 {% else %}

@@ -1,41 +1,78 @@
 {% extends 'base.html.twig' %}
 {% block title %} Administration {% endblock %}
 {% block body %}
- <div>
-        <div class="row mt-5">
-                <div class="col-12">
-                    <a href="{{ path('new_project') }}" class="btn btn-primary " style="float: right">Ajouter</a>
-                    <h5>Projets</h5>
-                    <table>
-                        <thead>
-                        <tr>
-                            <th style="max-width:10%">#</th>
-                            <th style="max-width:20%">Titre</th>
-                            <th style="max-width:20%">Lien Image</th>
-                            <th style="max-width:20%">Github</th>
-                            <th style="max-width:20%">Lien URL</th>
-                            <th style="max-width:10%">Actions</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {% set i = 1 %}
-                        {% for project in projects %}
-                            <tr>
-                                <td>{{ i }}</td>
-                                <td><a href="{{ path('project_show', {'id': project.id}) }}" target="_blank">{{ project.title }}</a></td>
-                                <td>{{project.Image}}</td>
-                                <td>{{project.Github}}</td>
-                                <td>{{project.Weblink}}</td>
-                                 <td>
-                                    <a href="{{ path('edit_project', {'id': project.id}) }}"><i class="material-icons blue-text">edit</i></a>
-                                    <a href="{{ path('remove_project', {'id': project.id}) }}"><i class="material-icons red-text">delete</i></a>
-                                </td>
-                            </tr>
-                            {% set i = i+1 %}
-                        {% endfor %}
-                          </tbody>
-                    </table>
-                </div>
-            </div>
-            
+<div>
+    <div class="row mt-5">
+        <div class="col-12">
+            <a href="{{ path('new_project') }}" class="btn btn-primary " style="float: right">Ajouter</a>
+            <h5>Projets</h5>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="max-width:10%">#</th>
+                        <th style="max-width:20%">Titre</th>
+                        <th style="max-width:20%">Lien Image</th>
+                        <th style="max-width:20%">Github</th>
+                        <th style="max-width:20%">Lien URL</th>
+                        <th style="max-width:10%">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% set i = 1 %}
+                    {% for project in projects %}
+                    <tr>
+                        <td>{{ i }}</td>
+                        <td><a href="{{ path('project_show', {'id': project.id}) }}"
+                                target="_blank">{{ project.title }}</a></td>
+                        <td>{{project.Image}}</td>
+                        <td>{{project.Github}}</td>
+                        <td>{{project.Weblink}}</td>
+                        <td>
+                            <a href="{{ path('edit_project', {'id': project.id}) }}"><i
+                                    class="material-icons blue-text">edit</i></a>
+                            <a href="{{ path('remove_project', {'id': project.id}) }}"><i
+                                    class="material-icons red-text">delete</i></a>
+                        </td>
+                    </tr>
+                    {% set i = i+1 %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-12">
+            <a href="{{ path('new_category') }}" class="btn btn-primary " style="float: right">Ajouter</a>
+            <h5>Catégories</h5>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="max-width:10%">#</th>
+                        <th style="max-width:20%">Nom</th>
+                        <th style="max-width:60%">Description</th>
+                        <th style="max-width:10%">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% set i = 1 %}
+                    {% for category in categories %}
+                    <tr>
+                        <td>{{ i }}</td>
+                        <td>{{ category.name }}</td>
+                        <td>{{category.description|raw}}</td>
+                        <td>
+                            <a href="{{ path('edit_category', {'id': category.id}) }}"><i
+                                    class="material-icons blue-text">edit</i></a>
+                            <a href="{{ path('remove_category', {'id': category.id}) }}"><i
+                                    class="material-icons red-text">delete</i></a>
+                        </td>
+                    </tr>
+                    {% set i = i+1 %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

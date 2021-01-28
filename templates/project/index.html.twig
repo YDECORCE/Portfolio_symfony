@@ -1,11 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProjectController!{% endblock %}
+{% block title %}Mes projets{% endblock %}
 
 {% block body %}
 
-<div class="row my-5 justify-content-center">
-    <h1>Mes projets</h1>
+<div class="row my-3 justify-content-center">
+    <h1>Mes projets</h1>  
+</div>
+<h2> Filtrer par technologies</h2>
+<div class="row my-3 justify-content-around">
+{% for  category in categories %}
+<a href="{{ path('showbycategory', {'id': category.id}) }}" target="blanck"><button type="button"
+                            class="btn btn-primary">{{category.name}}</button></a>
+{% endfor %}
 </div>
 <div class="row">
 {% for project in projects %}
@@ -19,7 +26,7 @@
             <div class="card-body" style="text-align:center">
                 <img src={{asset('uploads/Images/' ~ project.image)}} class="img-fluid" style="text-align:center; height:150px">
                 {# <p class="card-text">{{project.description}}.</p> #}
-                <div>
+                <div class="mt-2">
                 <a href={{project.github}} target="blanck"><button type="button" class="btn btn-primary">GitHub</button></a>
                 <a href={{project.weblink}} target="blanck"><button type="button" class="btn btn-primary">Web</button></a>
                 </div>

@@ -58,3 +58,12 @@ https://twig.symfony.com/
 Date du projet : 
 Du 19/01/2021 au 27/01/2021
 
+Super Bonus
+
+Alors Yann
+Ce que j'attends maintenant c'est que tu ajourte quelque chose a ton projet
+Des catégories pour ordonner tout cela
+Je vous donc qu'a un projet je puisse y associer une ou plusieurs catégories.
+Je veux que mes catégories soient définies par un nom et une description et surtout qu'il soit possible de les modifier par la suite.
+Enfin je veux sur la page front que tu puisse faire un tri pour n'afficher que les projets correspondant à la catégorie choisie
+
